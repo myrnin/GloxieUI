@@ -1,8 +1,8 @@
 import React from "react";
-import "./Typography.css";
-import { Typography } from "@mui/material";
 
-interface TypographyProps {
+import { StyledTypography, TypographyProps } from "./Typography.styles";
+
+interface GUITypographyProps extends TypographyProps {
   /**
    * Is this the principal call to action on the page?
    */
@@ -28,14 +28,9 @@ interface TypographyProps {
 /**
  * Primary UI component for user interaction
  */
-const GUITypography = ({
-  primary = false,
-  size = "medium",
-  backgroundColor,
-  label,
-  ...props
-}: TypographyProps) => {
-  return <Typography {...props}>{label}</Typography>;
+const GUITypography = ({ label, ...props }: GUITypographyProps) => {
+  return <StyledTypography {...props}>{label}</StyledTypography>;
 };
 
 export { GUITypography as Typography };
+export type { GUITypographyProps as TypographyProps };
